@@ -17,7 +17,7 @@ for s in query:
             for col_names in df.columns:
                 if 'username' in col_names or 'Username' in col_names:
                     for validusrs in df[col_names].values.tolist():
-                        if "@" in validusrs:
+                        if "@" in validusrs or "protected" in validusrs:
                             usernames.append(validusrs) 
                 if "password" in col_names or "Password" in col_names:
                     for pswd in df[col_names].values.tolist():
