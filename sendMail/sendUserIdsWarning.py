@@ -9,8 +9,11 @@ s.login(senderMail, senderPass)
   
 message = "Dear customer, your account credentials have been leaked. Kindly change your login details."
 
-usernames=open("\\dataFiles\\userNames.txt","r")
+usernames=open("dataFiles\\userNames.txt","r")
 for mails in usernames:
-    s.sendmail(senderMail, mails, message)
+    try:
+        s.sendmail(senderMail, mails, message)
+    except:
+        pass
 
 s.quit()
